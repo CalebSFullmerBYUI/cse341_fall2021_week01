@@ -12,6 +12,22 @@
         <h1>
           <%= title %>
         </h1>
+
+        <form style="color: black;" action="/ta03/search-items" method="POST"><input type="text" name="searchInput"><input type="submit" value="Search"></form>
+
+        <% for (item of data) { %>
+          <div>
+            <img src="<%= item.imageUrl %>">
+            <p style="margin-top: 0; margin-bottom: 0;"><%= item.name %></p>
+            <p style="margin-top: 0; margin-bottom: 0;"><%= item.price %></p>
+            <p style="margin-top: 0; margin-bottom: 0;"><%= item.description %></p>
+            <p style="margin-top: 0;">
+              <% for (tag of item.tags) { %>
+                <span>#<%= tag %></span>
+              <% } %>
+            </p>
+          </div>
+        <% } %>
         <p>This is the placeholder for Team Activity 03</p>
       </div>
     </div>

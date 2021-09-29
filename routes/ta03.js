@@ -2,13 +2,12 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
-  res.render('pages/ta03', {
-    title: 'Team Activity 03',
-    path: '/ta03', // For pug, EJS
-    activeTA03: true, // For HBS
-    contentCSS: true, // For HBS
-  });
-});
+const ta03Control = require('../controllers/ta03-control');
+
+let items = [];
+
+
+router.get('/', ta03Control.getAllProducts);
+router.post('/search-items', ta03Control.searchItems)
 
 module.exports = router;
